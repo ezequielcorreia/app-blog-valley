@@ -6,7 +6,7 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    environment: testing
+    environment: app-blog
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +15,7 @@ jobs:
       - name: Setup enviroment variables
         run: |
           touch .env
-          echo POSTGRES_URL=${{ secrets.POSTGRES_URL }}
+          echo POSTGRES_URL=${{ secrets.POSTGRES_URL }} > .env
        - name: Run Tests
         run: |
           npm install
